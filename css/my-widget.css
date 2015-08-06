@@ -1,10 +1,206 @@
-@import cleanslate.css;
-
-#myWidget .mw-wrapper {
-	width: 220px !important;
-	color: #eee !important;
-	background: #333 !important;
-	border: 1px solid #444 !important;
-	padding: 5px !important;
-	border-radius: 5px !important;
+#vietnamworks-jobs {
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 15px 10px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#vietnamworks-jobs * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: arial, verdana, sans-serif;
+  font-size: 12px;
+  color: #666;
+  -webkit-text-size-adjust: none;
+}
+#vietnamworks-jobs a {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+#vietnamworks-jobs ul {
+  list-style: none;
+  padding-left: 0;
+}
+#vietnamworks-jobs ul li {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  padding-left: 40px;
+}
+#vietnamworks-jobs .job {
+  margin-top: 0;
+}
+#vietnamworks-jobs .job .job-info {
+  margin-top: 15px;
+}
+#vietnamworks-jobs .job .job-info > span {
+  display: inline-block;
+  margin-right: 20px;
+}
+#vietnamworks-jobs .job .job-info .show-more {
+  float: right;
+  margin-right: 0;
+  cursor: pointer;
+}
+#vietnamworks-jobs .salary {
+  background: #00b9f2;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 34px;
+  height: 34px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  text-align: center;
+}
+#vietnamworks-jobs .salary strong {
+  color: #fff;
+  display: inline-block;
+  margin-top: 2px;
+  width: 100%;
+  border-bottom: 1px solid #80dcf9;
+}
+#vietnamworks-jobs .salary span {
+  color: #fff;
+  font-size: 10px;
+}
+#vietnamworks-jobs .company-name {
+  font-size: 12px;
+  color: #666;
+}
+#vietnamworks-jobs .show-more-info-box {
+  border: 1px solid #e7eaec;
+  background: #f5f5f5;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  padding: 20px 15px;
+  padding-top: 0;
+  margin-top: 10px;
+}
+#vietnamworks-jobs .show-more-info-box p {
+  font-size: 14px;
+  margin-top: 15px;
+}
+#vietnamworks-jobs .icon-map-marker {
+  width: 7px;
+  height: 11px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAWBAMAAAAC47AUAAAAMFBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmy/KNBAAAAD3RSTlMAd0Tuu2aZEapVIszdM4ioukklAAAAeUlEQVQI10XLMQ4BURRG4UNQqBR6VmAqUUlI9OzAEkgkejuwA3ZgCWNLiEQhOe6NzMxpvuS9/9I0WS2vwVGdhqXRgJaeSp8cnNP1w8Uz7GQkUDRu/+/Vrr7rmy3yT3NzC75AL3yHObgTrXWTFr72accHWdsZZMMx/ADhq0ZCQoriygAAAABJRU5ErkJggg==");
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+#vietnamworks-jobs .icon-calendar {
+  width: 12px;
+  height: 13px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAaBAMAAABfkYHAAAAAJ1BMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmahP7BAAAADHRSTlMAu0R3zO6ZVd0zImbF1NhlAAAAhklEQVQY02NAA8zGQILdeAKYk3MmgYFhz5lTYM4RlQMMDDLKh0FspYOMh5SUfJiOKTAwLD1zkPEMEDCdOVrAYAPnnBEAco6ogDjKEA4UYHIUGAQYGBkYjBh48HKMlJyUVJSUkpV0gBxHwUBBUUHBFkEZTD2EOSgGkOcCHYQXDBg4jWHAnAEA+ktJ56tTaqEAAAAASUVORK5CYII=");
+  display: inline-block;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+#vietnamworks-jobs .icon-eye {
+  width: 12px;
+  height: 8px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAQBAMAAAD+CqKmAAAAMFBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmy/KNBAAAAD3RSTlMA7ncRZsy7md0zRFUiqogGrLUeAAAAsklEQVQI12MAg9XaixmggCX/////IRA2d/9/cf3//1tAbOZ6wa8HVvz/L58M5Jh+Wy/sCFQ396sBA3N8gX+xPJCjUB/MwPedQV/rP4jD/pdhfQCDvwSYw5DPoK/AcP4/CExg8GcwlGRgB7G/MXAKMnB/nMDcD+TIMJh+YWDwl2QwA0oc4OxXADrmvzLDJKUJDIqfQE5Y8UOHgYFH4+MGsHsU/4ulyX9Uhjp7e/z/cAcgDQC26UxonDYgTwAAAABJRU5ErkJggg==");
+  display: inline-block;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+#vietnamworks-jobs .icon-caret-down {
+  width: 9px;
+  height: 5px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKAgMAAADEJeYyAAAADFBMVEUAAACZmZmZmZmZmZnk5WrOAAAAA3RSTlMAZlXS0K2EAAAAMklEQVQI1y2JMREAIACEcDKGVWymzaxgGFcPf5CBAVjq/G56oeqBohsY9rglZyRnbD4PhDkWAZEtYoMAAAAASUVORK5CYII=");
+  display: inline-block;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+#vietnamworks-jobs .icon-caret-up {
+  width: 9px;
+  height: 5px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAKBAMAAABLZROSAAAAFVBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZnaZv17AAAABnRSTlMA7pkziCI5HdhvAAAAMUlEQVQI12MAAiZhBihQSzSAMJjS0oShQmlpQEGIEFAQKgQSBAtBBd0grMQAJBYcAACLthBcIsh4hgAAAABJRU5ErkJggg==");
+  display: inline-block;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+}
+#vietnamworks-jobs .tag {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #e7eaec;
+  border-left: none;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 7px 0 2px;
+  position: relative;
+  margin-right: 5px;
+  margin-left: 8px;
+}
+#vietnamworks-jobs .tag::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 8px;
+  height: 21px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAqCAYAAAC6EtuqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3MWRmY2U3Mi1hNDUwLWJhNGEtOTBiYS0wYjQwMWNhYzU2NjYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MkRGNkE4QzAzQzFEMTFFNUE4NjFBNDRCMzk2RTQ0OTMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MkRGNkE4QkYzQzFEMTFFNUE4NjFBNDRCMzk2RTQ0OTMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NzFkZmNlNzItYTQ1MC1iYTRhLTkwYmEtMGI0MDFjYWM1NjY2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjcxZGZjZTcyLWE0NTAtYmE0YS05MGJhLTBiNDAxY2FjNTY2NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pg0cXVIAAAJNSURBVHjaxFY9i9RQFL15ybz52iQ7LgHtt7HYxsZ+LQTBFWwU7Oy2s97CTrBWsBZEBEFLxULBRrC28A9YKKurk92ZZZJM4jnZOK4zk2xeLPbB5bwU5777cfLus7IsE9P1dffHNuAe904D8k3AQ5jNb8skgm/f9y5Jlr1yHEe3Wo70e11RBidfALxQSmnbtnOyrVS9CEBeB3wAIdC6Je5KX5RlSa0agBwAXsMC3dbiMuyCfKIDkH3AW9g6c/b6PbGOkblUBVkDXsI2mPPAcxfITF+VkNmiZ7BNFurMqico3tKDyiJgn6/zxIHv5dUuW2rJ6XcB20dkVxzHrizyP20sJPqIe5LbWleSyZ05APkahUKJem5fep3OifqYFRHkTcBzkl20qg55VgOQN4p26V63k0vUZDGCNzC/226LB4maLjo4x43nrUiTNWujVZOQplk9KRtHUHfN/Q5NHPz1kJ1KCv/t4Pi/Y51SFxavtF1uhuFB4wiuwkaHk4nsj8bmDs4Gax+BW7BoND4UmnEN4OQd4DaLzCgYjXER4eQp4A73IeoxiWLzLsDJA8B9dvpXuC9xnDRq4w7sMQXzE06S6bT+rTw3WHjNbeWDZeCXzobS6QwnPQCLe5GzYW3VXxBRpRJRD4riMuxTkkxlbxjKssMqpQwnQ8AV2BcWNDwYS5wk9VKYS+c84D0SCP68Tjp4KzClWj8TIvlMyeOo8TRNc6FFiCgtG+8lTij5G4g4ynAzR3EMncRmr7QinVuAJ0yfbwbj+6CQ/M7RjEjltwADAE5r4awrcV/BAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  top: -1px;
+  left: -8px;
+}
+#vietnamworks-jobs .cleanslate:before,
+#vietnamworks-jobs .cleanslate:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+#vietnamworks-jobs .cleanslate:after {
+  clear: both;
+}
+#vietnamworks-jobs .cleanslate .mw-wrapper {
+  float: right;
+}
+#vietnamworks-jobs .cleanslate .mw-wrapper a {
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid #00b9f2;
+  padding: 3px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  vertical-align: middle;
+  -webkit-transition: border-color 0.3s;
+  transition: border-color 0.3s;
+}
+#vietnamworks-jobs .cleanslate .mw-wrapper a:hover {
+  border-color: #f7941d;
+}
+#vietnamworks-jobs .cleanslate .update-time {
+  font-style: italic;
+  color: #666;
+  display: inline-block;
+  margin-top: 3px;
+  float: right;
+  margin-right: 5px;
+  text-align: right;
+}
+#vietnamworks-jobs.light-skin a.job-title {
+  color: #555;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 100;
+}
+#vietnamworks-jobs.light-skin a.job-title:hover {
+  color: #f7941d;
 }

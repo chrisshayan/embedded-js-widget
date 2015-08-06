@@ -1,5 +1,12 @@
 <div class="cleanslate">
-  <div class="mw-wrapper">
-    <a href="#" on-click="mwClick">{{ cnt }} clicks!</a> last click: {{ ts }}
-  </div>
+    <div class="mw-wrapper">
+        <a href="#" on-click="mwClick">Refresh</a>
+    </div>
+    <span class="update-time">Latest update at {{ timeUpdate }}</span>
+</div>
+<div class="vietnamworks-jobs">
+    <ul class="job-list">
+        {{>jobList}}
+    </ul>
+    <a id="load-more-jobs-from-vnw">Load more</a>
 </div>
