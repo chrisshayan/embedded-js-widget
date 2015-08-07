@@ -31,7 +31,7 @@
         <div id="widget-preview">
           <h3>Preview</h3>
           <div id="vietnamworks-jobs" data-vnw-keyword="" data-vnw-numjobs="10" data-vnw-userid="" data-vnw-lang="1"
-               data-vnw-industry="" data-vnw-location="" data-vnw-email=""></div>
+               data-vnw-industry="" data-vnw-location="" data-vnw-email="" data-vnw-widget-height="500"></div>
         </div>
         <script>
           (function (window, document) {
@@ -69,8 +69,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-3 control-label">Employer ID</label>
-
+                <label class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="email"/>
                 </div>
@@ -229,16 +228,19 @@
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Job Number</label>
-
                 <div class="col-sm-9">
                   <input type="text" id="numjobs" class="form-control" placeholder="10"/>
                   <span class="help-block">Maximum is 30</span>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Height</label>
+                <div class="col-sm-9">
+                  <input type="text" id="widget-height" class="form-control" placeholder="500"/>
+                </div>
+              </div>
             </div>
-
           </form>
-
         </div>
       </div>
     </div>
@@ -262,6 +264,11 @@
         if ($numjobs_val == "") {
           $numjobs_val=10;
         }
+        var $widget_height_val= $("#vietnamworks-jobs").data("vnw-widget-height");
+        if($widget_height_val==""){
+          $widget_height_val=500;
+        }
+
         var vnwjobscontainer = document.createElement("div");
         vnwjobscontainer.setAttribute("id", "vietnamworks-jobs");
         vnwjobscontainer.setAttribute("data-vnw-lang", $lang_val);
@@ -278,11 +285,13 @@
           vnwjobscontainer.setAttribute("data-vnw-industry", $industry_val);
         }
         vnwjobscontainer.setAttribute("data-vnw-numjobs", $numjobs_val);
+        vnwjobscontainer.setAttribute("data-vnw-widget-height", $widget_height_val);
+
         var strvnwjobscontainer = vnwjobscontainer.outerHTML;
         $("#embedded-container").html(strvnwjobscontainer + js_script_escape);
         require([ "app/app"], function (app) {
           "use strict";
-          app.reload($email_val,$keyword_val,$industry_val,$location_val,$numjobs_val,$lang_val);
+          app.reload($email_val,$keyword_val,$industry_val,$location_val,$numjobs_val,$lang_val,$widget_height_val);
         });
       }
       $("#lang").change(function () {
@@ -318,9 +327,12 @@
       });
       $("#numjobs").change(function () {
         var $numjobs_val = $(this).val();
-        //jQuery.data($("#vietnamworks-jobs"),"vnw-numjobs",$numjobs_val);
-        //$("#vietnamworks-jobs").data("vnw-numjobs", $numjobs_val);
         $("#vietnamworks-jobs").data("vnw-numjobs",$numjobs_val);
+        change_config();
+      });
+      $("#widget-height").change(function () {
+        var $widget_height_val = $(this).val();
+        $("#vietnamworks-jobs").data("vnw-widget-height",$widget_height_val);
         change_config();
       });
     });
