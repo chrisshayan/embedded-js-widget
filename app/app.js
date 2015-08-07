@@ -88,6 +88,7 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
                     ts: 'never'
                 }
             });
+            var that=this.ractive;
             var lang = $lang
             if(lang == '2'){
                 lang = 'en';
@@ -102,7 +103,7 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
 
             //call ajax
             $vnwWidget.ajax({
-                url: "http://api.sontt.vnw25.com/jobs/search-jsonp/",
+                url: "https://api-staging.vietnamworks.com/jobs/search-jsonp/",
                 dataType: "jsonp",
                 data: {
                     'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
@@ -117,9 +118,13 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
             }).then(function (resp) {
 
                 resp = $vnwWidget.parseJSON(resp);
-                $vnwWidget.each( resp.data.jobs, function( key, value ) {
-                    dataJobsList.push(value);
-                });
+                var dataJobsList=[];
+                if(resp.data.jobs.length>0){
+                    $vnwWidget.each( resp.data.jobs, function( key, value ) {
+                        dataJobsList.push(value);
+                    });
+                }
+
                 var totalDisplayJob = dataJobsList.length;
                 var total = resp.data.total;
                 that.set("jobs",dataJobsList);
@@ -139,7 +144,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
         pageSize = 5;
     }
     $vnwWidget.ajax({
-        url: "http://api.sontt.vnw25.com/jobs/search-jsonp/",
+        url: "https://api-staging.vietnamworks.com/jobs/search-jsonp/",
         dataType: "jsonp",
         data: {
             'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
