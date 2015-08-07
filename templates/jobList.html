@@ -10,7 +10,7 @@
         <div class="job-info">
             <span class="work-location">
                 <span class="icon-map-marker"></span>
-                {{#each job_location}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+                {{#each job_location:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
             </span>
             <span class="date">
                 <span class="icon-calendar"></span>
@@ -22,7 +22,7 @@
             </span>
             <span class="category">
                 <span class="icon-category"></span>
-                {{#each job_industry}} <a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+                {{#each job_industry:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
             </span>
             <span class="show-more">{{ translation.show_more }}
                 <span class="icon-caret-down"></span>
