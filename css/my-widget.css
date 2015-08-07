@@ -1,4 +1,6 @@
 /*************** SCROLLBAR BASE CSS ***************/
+.scroll-wrapper.vietnamworks-jobs{max-height:500px; }
+
 .scroll-wrapper {
   overflow: hidden !important;
   padding: 0 !important;
