@@ -1,29 +1,43 @@
 {{#each jobs:i}}
 <li>
-    <div class="salary">
-        <strong>1200</strong>
-        <span>USD</span>
+    <div class="post-date">
+        <strong>31</strong>
+        <span>Feb</span>
     </div>
     <div class="job">
-        <a target="_blank" class="job-title" href="http://sontt.vnw25.com/graphic-designer-2-3-561301-jv">{{job_title}}</a>
-        <div class="company-name">{{ job_company }}</div>
-
+        <a target="_blank" class="job-title" href="{{ job_detail_url }}">{{job_title}}</a>
+        <div class="company-name">{{ job_company }} <strong class="salary">{{ salary }}</strong></div>
         <div class="job-info">
-            <span class="work-location"><span class="icon-map-marker"></span> {{#each job_location}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}</span>
-            <span class="date"><span class="icon-calendar"></span> {{ translation.Posted }}: {{posted_date}}</span>
-            <span class="views"><span class="icon-eye"></span> 798</span>
-            <span class="show-more">{{ translation.show_more }} <span class="icon-caret-down"></span></span>
+            <span class="work-location">
+                <span class="icon-map-marker"></span>
+                {{#each job_location}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+            </span>
+            <span class="date">
+                <span class="icon-calendar"></span>
+                {{ translation.Posted }}: {{posted_date}}
+            </span>
+            <span class="views">
+                <span class="icon-eye"></span>
+                {{ views }}
+            </span>
+            <span class="category">
+                <span class="icon-category"></span>
+                {{#each job_industry}} <a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+            </span>
+            <span class="show-more">{{ translation.show_more }}
+                <span class="icon-caret-down"></span>
+            </span>
         </div>
     </div>
-    <div class="show-more-info-box">
-        <p>{{ translation.Industries }}: {{#each job_industry}} <a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}</p>
-
+    <div class="show-more-info-box in">
         <p>{{ translation.Benefits }}</p>
         {{#each benefits}}
-        <div class="benefit"><i class="fa fa-dollar"></i>
+        <div class="benefit">
+            <span class=""></span>
             <span>{{ benefitValue }}</span>
         </div>
         {{/each}}
+
         <p>{{ translation.Skills }}:</p>
         {{#each skills}}<div class="tag">{{ skillName }}</div>{{/each}}
     </div>
