@@ -68,6 +68,65 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
                     loadJobListFromVNW($vnwWidget,that,1);
                 }
             });
+        },
+        reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang) {
+            Ractive.DEBUG = false;
+            dataJobsList = [];
+            var $style = $vnwWidget("<style></style>", {type: "text/css"});
+            $style.text(css);
+            $vnwWidget("head").append($style);
+
+            // render our main view
+            this.ractive = new Ractive({
+                el: 'vietnamworks-jobs',
+                template: mainTemplate,
+                partials: {
+                    jobList: jobListTemplate
+                },
+                data: {
+                    cnt: 0,
+                    ts: 'never'
+                }
+            });
+            var lang = $lang
+            if(lang == '2'){
+                lang = 'en';
+            }else{
+                lang = 'vn';
+            }
+            var tranlation = {};
+            $vnwWidget.each(translationData,function(key, value){
+                tranlation[key] = value[lang];
+            });
+            this.ractive.set("translation",tranlation);
+
+            //call ajax
+            $vnwWidget.ajax({
+                url: "http://api.sontt.vnw25.com/jobs/search-jsonp/",
+                dataType: "jsonp",
+                data: {
+                    'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
+                    'email': $email,
+                    'lang': $lang,
+                    'job_title': $job_title,
+                    'job_category': $job_category,
+                    'job_location': $job_location,
+                    'page_size': $page_size,
+                    'current_page': 1
+                }
+            }).then(function (resp) {
+
+                resp = $vnwWidget.parseJSON(resp);
+                $vnwWidget.each( resp.data.jobs, function( key, value ) {
+                    dataJobsList.push(value);
+                });
+                var totalDisplayJob = dataJobsList.length;
+                var total = resp.data.total;
+                that.set("jobs",dataJobsList);
+                that.set("timeUpdate",resp.data.getListJobTime);
+            }, function (resp) {
+                console.log(resp);
+            });
         }
     };
 
