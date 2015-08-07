@@ -1,3 +1,158 @@
+/*************** SCROLLBAR BASE CSS ***************/
+.scroll-wrapper {
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: relative;
+}
+.scroll-wrapper > .scroll-content {
+  border: none !important;
+  box-sizing: content-box !important;
+  height: auto;
+  left: 0;
+  margin: 0;
+  max-height: none;
+  max-width: none !important;
+  overflow: scroll !important;
+  padding: 0;
+  position: relative !important;
+  top: 0;
+  width: auto !important;
+}
+.scroll-wrapper > .scroll-content::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+.scroll-element {
+  display: none;
+}
+.scroll-element,
+.scroll-element div {
+  box-sizing: content-box;
+}
+.scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-element.scroll-y.scroll-scrolly_visible {
+  display: block;
+}
+.scroll-element .scroll-bar,
+.scroll-element .scroll-arrow {
+  cursor: default;
+}
+.scroll-textarea {
+  border: 1px solid #cccccc;
+  border-top-color: #999999;
+}
+.scroll-textarea > .scroll-content {
+  overflow: hidden !important;
+}
+.scroll-textarea > .scroll-content > textarea {
+  border: none !important;
+  box-sizing: border-box;
+  height: 100% !important;
+  margin: 0;
+  max-height: none !important;
+  max-width: none !important;
+  overflow: scroll !important;
+  outline: none;
+  padding: 2px;
+  position: relative !important;
+  top: 0;
+  width: 100% !important;
+}
+.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+/*************** SIMPLE OUTER SCROLLBAR ***************/
+.scrollbar-outer > .scroll-element,
+.scrollbar-outer > .scroll-element div {
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 10;
+}
+.scrollbar-outer > .scroll-element {
+  background-color: #ffffff;
+}
+.scrollbar-outer > .scroll-element div {
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.scrollbar-outer > .scroll-element.scroll-x {
+  bottom: 0;
+  height: 12px;
+  left: 0;
+  width: 100%;
+}
+.scrollbar-outer > .scroll-element.scroll-y {
+  height: 100%;
+  right: 0;
+  top: 0;
+  width: 12px;
+}
+.scrollbar-outer > .scroll-element.scroll-x .scroll-element_outer {
+  height: 8px;
+  top: 2px;
+}
+.scrollbar-outer > .scroll-element.scroll-y .scroll-element_outer {
+  left: 2px;
+  width: 8px;
+}
+.scrollbar-outer > .scroll-element .scroll-element_outer {
+  overflow: hidden;
+}
+.scrollbar-outer > .scroll-element .scroll-element_track {
+  background-color: #f5f5f5;
+}
+.scrollbar-outer > .scroll-element .scroll-element_outer,
+.scrollbar-outer > .scroll-element .scroll-element_track,
+.scrollbar-outer > .scroll-element .scroll-bar {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.scrollbar-outer > .scroll-element .scroll-bar {
+  background-color: #E2E2E2;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.scrollbar-outer > .scroll-element .scroll-bar:hover {
+  background-color: #c2c2c2;
+}
+.scrollbar-outer > .scroll-element.scroll-draggable .scroll-bar {
+  background-color: #919191;
+}
+/* scrollbar height/width & offset from container borders */
+.scrollbar-outer > .scroll-content.scroll-scrolly_visible {
+  left: -12px;
+  margin-left: 12px;
+}
+.scrollbar-outer > .scroll-content.scroll-scrollx_visible {
+  top: -12px;
+  margin-top: 12px;
+}
+.scrollbar-outer > .scroll-element.scroll-x .scroll-bar {
+  min-width: 10px;
+}
+.scrollbar-outer > .scroll-element.scroll-y .scroll-bar {
+  min-height: 10px;
+}
+/* update scrollbar offset if both scrolls are visible */
+.scrollbar-outer > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track {
+  left: -14px;
+}
+.scrollbar-outer > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track {
+  top: -14px;
+}
+.scrollbar-outer > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
+  left: -14px;
+}
+.scrollbar-outer > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
+  top: -14px;
+}
 #vietnamworks-jobs {
   width: 100%;
   border: 1px solid #ddd;
@@ -32,12 +187,20 @@
 #vietnamworks-jobs ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 0;
+  margin-right: 8px;
 }
 #vietnamworks-jobs ul li {
   padding: 20px 0;
   border-bottom: 1px solid #e5e5e5;
   position: relative;
   padding-left: 40px;
+}
+#vietnamworks-jobs ul li:first-child {
+  padding-top: 0;
+}
+#vietnamworks-jobs ul li:first-child .post-date {
+  top: 0;
 }
 #vietnamworks-jobs .job {
   margin-top: 0;
@@ -66,16 +229,16 @@
   top: 20px;
   width: 34px;
   height: 34px;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   text-align: center;
 }
 #vietnamworks-jobs .post-date strong {
   color: #fff;
   display: inline-block;
   margin-top: 3px;
-  width: 100%;
+  width: 60%;
   border-bottom: 1px solid #80dcf9;
 }
 #vietnamworks-jobs .post-date span {
@@ -99,11 +262,11 @@
 }
 #vietnamworks-jobs .show-more-info-box {
   border: 1px solid #e7eaec;
-  background: #f5f5f5;
+  background: #fafafa;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  padding: 20px 15px;
+  padding: 20px 15px 15px;
   padding-top: 0;
   margin-top: 10px;
   opacity: 0;
@@ -113,7 +276,8 @@
 }
 #vietnamworks-jobs .show-more-info-box p {
   font-size: 14px;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 #vietnamworks-jobs .show-more-info-box .benefit {
   padding-left: 16px;
@@ -199,6 +363,7 @@
   position: relative;
   margin-right: 5px;
   margin-left: 8px;
+  margin-bottom: 5px;
 }
 #vietnamworks-jobs .tag::before {
   content: "";
@@ -251,7 +416,7 @@
   text-align: right;
 }
 #vietnamworks-jobs.light-skin a.job-title {
-  color: #555;
+  color: #0085bb;
   font-size: 18px;
   text-decoration: none;
   font-weight: 100;
@@ -259,10 +424,41 @@
 #vietnamworks-jobs.light-skin a.job-title:hover {
   color: #f7941d;
 }
+@-webkit-keyframes clockwiseSpin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes clockwiseSpin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 #vietnamworks-jobs .load-more {
   text-align: center;
   padding-left: 0;
   cursor: pointer;
   padding-bottom: 0;
   border-bottom: none;
+}
+#vietnamworks-jobs .load-more span {
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+#vietnamworks-jobs .load-more:hover span {
+  color: #f7941d;
+}
+#vietnamworks-jobs .load-more:hover .icon-load-more {
+  -webkit-animation: clockwiseSpin 1s infinite ease;
+  animation: clockwiseSpin 1s infinite ease;
 }

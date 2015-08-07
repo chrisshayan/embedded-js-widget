@@ -93,8 +93,12 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
             });
             this.ractive.set("translation",tranlation);
             loadJobListFromVNW($vnwWidget,this.ractive,1);
+
+            var widgetHeight = $vnwWidget('#vietnamworks-jobs').data('vnw-widget-height');
+            console.log(widgetHeight);
+            this.ractive.set("widget_height",widgetHeight);
         },
-        reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang) {
+        reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height) {
             Ractive.DEBUG = false;
             dataJobsList = [];
             var $style = $vnwWidget("<style></style>", {type: "text/css"});
@@ -121,6 +125,7 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
                 tranlation[key] = value[lang];
             });
             this.ractive.set("translation",tranlation);
+            this.ractive.set("widget_height",$height);
 
             //call ajax
             $vnwWidget.ajax({
