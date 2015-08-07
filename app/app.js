@@ -167,6 +167,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
 
         $vnwWidget(function(){
             $vnwWidget('.scrollbar-outer').scrollbar();
+            $vnwWidget('.scrollbar-outer').height($vnwWidget('#vietnamworks-jobs').data('vnw-widget-height'));
         });
     }, function (resp) {
         console.log(resp);
