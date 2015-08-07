@@ -61,7 +61,7 @@ var translationData =
             'en':"DEC"
         }
     };
-define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 'text!css/my-widget_embed.css'], function ($vnwWidget, Ractive, mainTemplate, jobListTemplate, css) {
+define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 'text!css/my-widget_embed.css','jquery.scrollbar'], function ($vnwWidget, Ractive, mainTemplate, jobListTemplate, css, $vnwJQueryScrollbar) {
 
     'use strict';
     $vnwWidget.noConflict(true);
@@ -95,76 +95,21 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
             loadJobListFromVNW($vnwWidget,this.ractive,1);
 
             var widgetHeight = $vnwWidget('#vietnamworks-jobs').data('vnw-widget-height');
-            console.log(widgetHeight);
             this.ractive.set("widget_height",widgetHeight);
+
         },
         reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height) {
-            Ractive.DEBUG = false;
-            dataJobsList = [];
-            var $style = $vnwWidget("<style></style>", {type: "text/css"});
-            $style.text(css);
-            $vnwWidget("head").append($style);
-
-            // render our main view
-            this.ractive = new Ractive({
-                el: 'vietnamworks-jobs',
-                template: mainTemplate,
-                partials: {
-                    jobList: jobListTemplate
-                }
-            });
-            var that=this.ractive;
-            var lang = $lang;
-            if(lang == '2'){
-                lang = 'en';
-            }else{
-                lang = 'vn';
-            }
-            var tranlation = {};
-            $vnwWidget.each(translationData,function(key, value){
-                tranlation[key] = value[lang];
-            });
-            this.ractive.set("translation",tranlation);
-            this.ractive.set("widget_height",$height);
-
-            //call ajax
-            $vnwWidget.ajax({
-                url: "https://api-staging.vietnamworks.com/jobs/search-jsonp/",
-                dataType: "jsonp",
-                data: {
-                    'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
-                    'email': $email,
-                    'lang': $lang,
-                    'job_title': $job_title,
-                    'job_category': $job_category,
-                    'job_location': $job_location,
-                    'page_size': $page_size,
-                    'current_page': 1
-                }
-            }).then(function (resp) {
-
-                resp = $vnwWidget.parseJSON(resp);
-                var dataJobsList=[];
-                if(resp.data.jobs.length>0){
-                    $vnwWidget.each( resp.data.jobs, function( key, value ) {
-                        var postedDate=value.posted_date;
-                        var arrPostDate= postedDate.split("/");
-                        value.posted_day=arrPostDate[0];
-                        //translate month
-                        value.posted_month=translationData["month_"+arrPostDate[1]][lang];
-                        dataJobsList.push(value);
-                    });
-                }
-
-                var totalDisplayJob = dataJobsList.length;
-                var total = resp.data.total;
-                that.set("jobs",dataJobsList);
-            }, function (resp) {
-                console.log(resp);
-            });
+            //re-set data from agrument
+            $vnwWidget('#vietnamworks-jobs').data('vnw-email',$email);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-keyword',$job_title);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-industry',$job_category);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-location',$job_location);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-numjobs',$page_size);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-lang',$lang);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-widget-height',$height);
+            app.init();
         }
     };
-
     return app;
 
 });
@@ -219,6 +164,10 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
         }else{
             $vnwWidget('#load-more-jobs-from-vnw').hide();
         }
+
+        $vnwWidget(function(){
+            $vnwWidget('.scrollbar-outer').scrollbar();
+        });
     }, function (resp) {
         console.log(resp);
     });
