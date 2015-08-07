@@ -175,19 +175,18 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
                         $self = $vnwWidget(this);
                     if (!boxIsVisible) {
                         $thisBox.removeClass('hide');
-                        $self.html(translationData['show_less'][lang]+' <span class="icon-caret-up"></span>');
+                        $self.html(translationData['show_less'][lang]+' <span class="icon-caret-down"></span>');
                         $thisBox.addClass('in').slideDown(300);
-                        $self.find('.icon-caret-up').removeClass('icon-caret-up').addClass('icon-caret-down');
-                    } else {
-                        $self.html(translationData['show_more'][lang]+' <span class="icon-caret-down"></span>');
-                        $thisBox.removeClass('in').slideUp(300);
                         $self.find('.icon-caret-down').removeClass('icon-caret-down').addClass('icon-caret-up');
+                    } else {
+                        $self.html(translationData['show_more'][lang]+' <span class="icon-caret-up"></span>');
+                        $thisBox.removeClass('in').slideUp(300);
+                        $self.find('.icon-caret-up').removeClass('icon-caret-up').addClass('icon-caret-down');
 
                     }
                 })
             });
             $vnwWidget('.scrollbar-outer').scrollbar();
-            $vnwWidget('.scrollbar-outer').height($vnwWidget('#vietnamworks-jobs').data('vnw-widget-height'));
         });
     }, function (resp) {
         console.log(resp);
