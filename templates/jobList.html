@@ -1,8 +1,8 @@
 {{#each jobs:i}}
 <li>
     <div class="post-date">
-        <strong>31</strong>
-        <span>Feb</span>
+        <strong>{{posted_day}}</strong>
+        <span>{{posted_month}}</span>
     </div>
     <div class="job">
         <a target="_blank" class="job-title" href="{{ job_detail_url }}">{{job_title}}</a>
@@ -11,10 +11,6 @@
             <span class="work-location">
                 <span class="icon-map-marker"></span>
                 {{#each job_location}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
-            </span>
-            <span class="date">
-                <span class="icon-calendar"></span>
-                {{ translation.Posted }}: {{posted_date}}
             </span>
             <span class="views">
                 <span class="icon-eye"></span>
