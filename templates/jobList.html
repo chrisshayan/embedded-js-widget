@@ -1,41 +1,52 @@
-{{#each jobs:i}}
-<li>
-    <div class="post-date">
-        <strong>{{posted_day}}</strong>
-        <span>{{posted_month}}</span>
-    </div>
-    <div class="job">
-        <a target="_blank" class="job-title" href="{{ job_detail_url }}">{{job_title}}</a>
-        <div class="company-name">{{ job_company }} <strong class="salary">{{ salary }}</strong></div>
-        <div class="job-info">
-            <span class="work-location">
-                <span class="icon-map-marker"></span>
-                {{#each job_location:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
-            </span>
-            <span class="views">
-                <span class="icon-eye"></span>
-                {{ views }}
-            </span>
-            <span class="category">
-                <span class="icon-category"></span>
-                {{#each job_industry:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
-            </span>
-            <span class="show-more">{{ translation.show_more }}
-                <span class="icon-caret-down"></span>
-            </span>
+{{#if jobs.length >0}}
+    {{#each jobs:i}}
+    <li>
+        <div class="post-date">
+            <strong>{{posted_day}}</strong>
+            <span>{{posted_month}}</span>
         </div>
-    </div>
-    <div class="show-more-info-box hide">
-        <p>{{ translation.Benefits }}</p>
-        {{#each benefits}}
-        <div class="benefit">
-            <span class=""></span>
-            <span>{{ benefitValue }}</span>
+        <div class="job">
+            <a target="_blank" class="job-title" href="{{ job_detail_url }}/?utm_source=widget&utm_medium={{domain}}&utm_campaign=Widget">{{job_title}}</a>
+            <div class="company-name">{{ job_company }} <strong class="salary">{{ salary }}</strong></div>
+            <div class="job-info">
+                <span class="work-location">
+                    <span class="icon-map-marker"></span>
+                    {{#each job_location:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+                </span>
+                <span class="views">
+                    <span class="icon-eye"></span>
+                    {{ views }}
+                </span>
+                <span class="category">
+                    <span class="icon-category"></span>
+                    {{#each job_industry:i}} {{#if i>0}},&nbsp;{{/if}}<a href="{{ link }}" target="_blank">{{name}}</a> {{/each}}
+                </span>
+                <span class="show-more">{{ translation.show_more }}
+                    <span class="icon-caret-down"></span>
+                </span>
+            </div>
         </div>
-        {{/each}}
+        <div class="show-more-info-box hide">
+            <p>{{ translation.Benefits }}</p>
+            {{#each benefits}}
+            <div class="benefit">
+                <span class=""></span>
+                <span>{{ benefitValue }}</span>
+            </div>
+            {{/each}}
 
-        <p>{{ translation.Skills }}:</p>
-        {{#each skills}}<div class="tag">{{ skillName }}</div>{{/each}}
-    </div>
-</li>
-{{/each}}
+            <p>{{ translation.Skills }}:</p>
+            {{#each skills}}<div class="tag">{{ skillName }}</div>{{/each}}
+        </div>
+    </li>
+    {{/each}}
+    <li id="load-more-jobs-from-vnw" class="load-more">
+        <span class="icon-load-more"></span>
+        <span>{{translation.load_more}}...</span>
+    </li>
+{{/if}}
+{{#if not_found_job==1}}
+    <li class="job-not-found">
+        <p>{{translation.job_not_found}}</p>
+    </li>
+{{/if}}
