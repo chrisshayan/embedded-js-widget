@@ -37,9 +37,8 @@
           (function (window, document) {
             var loader = function () {
               var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-              script.src = "http://sontt.widget.vnw25.com/embed.min.js";
-              //script.src = "http://dev.widget.vietnamworks.com/embed.min.js";
-              //tag.appendChild(script);
+              //script.src = "http://widget.vietnamworks.com/embed.min.js";
+              script.src = "http://widget.staging.vietnamworks.com/embed.min.js";
               tag.parentNode.insertBefore(script, tag);
             };
             window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
@@ -50,7 +49,7 @@
       <div class="col-sm-6 col-sm-pull-6">
         <div id="widget">
           <h3>Place the code for your plugin wherever you want the plugin to appear on your page.</h3>
-				<textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://sontt.widget.vnw25.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
+				<textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
 				</textarea>
 
           <form class="form-horizontal">
@@ -247,7 +246,7 @@
   </div>
   <script type="text/javascript">
     $(function(){
-      var js_script_escape = "&lt;script&gt;(function (window, document) {  var loader = function () {    var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://sontt.widget.vnw25.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;";
+      var js_script_escape = "&lt;script&gt;(function (window, document) {  var loader = function () {    var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;";
       function change_config() {
         var $lang_val = $("#vietnamworks-jobs").data("vnw-lang");
         var $email_val = $("#vietnamworks-jobs").data("vnw-email");
@@ -337,13 +336,7 @@
       });
     });
   </script>
-  <script type="text/javascript">
-    $(function () {
-//            $('#widget select').select2({
-//                width: '100%'
-//            });
-    })
-  </script>
+
 </div>
 
 

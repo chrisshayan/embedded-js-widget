@@ -7,6 +7,9 @@ var translationData =
         },"show_more":{
             "vn":"Xem thêm",
             "en":"Show more"
+        },"load_more":{
+            "vn":"Xem thêm",
+            'en':"Load more"
         },"Posted":{
             "vn":"Đăng tuyển",
             "en":"Posted"
@@ -22,8 +25,10 @@ var translationData =
         "Skills" : {
             "vn":"Kỹ năng",
             "en":"Skills"
-        },
-        "month_01":{
+        },"job_not_found":{
+            "vn":"No job found!",
+            "en":"Không tìm thấy việc làm!"
+        },"month_01":{
             'vn':"T1",
             'en':"JAN"
         },"month_02":{
@@ -92,10 +97,9 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
                 tranlation[key] = value[lang];
             });
             this.ractive.set("translation",tranlation);
+            var domain=document.domain;
+            this.ractive.set("domain",domain);
             loadJobListFromVNW($vnwWidget,this.ractive,1);
-
-            var widgetHeight = $vnwWidget('#vietnamworks-jobs').data('vnw-widget-height');
-            this.ractive.set("widget_height",widgetHeight);
 
         },
         reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height) {
@@ -120,6 +124,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
     }
     $vnwWidget.ajax({
         url: "https://api-staging.vietnamworks.com/jobs/search-jsonp/",
+        //url: "http://api.sontt.vnw25.com/jobs/search-jsonp/",
         dataType: "jsonp",
         data: {
             'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
@@ -142,52 +147,64 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
         }
 
         resp = $vnwWidget.parseJSON(resp);
-        $vnwWidget.each( resp.data.jobs, function( key, value ) {
-            var postedDate=value.posted_date;
-            var arrPostDate= postedDate.split("/");
-            value.posted_day=arrPostDate[0];
-            //translate month
-            value.posted_month=translationData["month_"+arrPostDate[1]][lang];
-            dataJobsList.push(value);
-        });
-        var totalDisplayJob = dataJobsList.length;
-        var total = resp.data.total;
-        that.set("jobs",dataJobsList);
-        $vnwWidget('#load-more-jobs-from-vnw').off('click');
-        if(total>totalDisplayJob){
-            $vnwWidget('#vietnamworks-jobs').one('click','#load-more-jobs-from-vnw',function(){
-                var currentPage = totalDisplayJob/pageSize + 1;
-                //currentPage = currentPage + 1;
-                loadJobListFromVNW($vnwWidget,that,currentPage);
-            });
-            $vnwWidget('#load-more-jobs-from-vnw').show();
-        }else{
-            $vnwWidget('#load-more-jobs-from-vnw').hide();
+        var rsApiCode=resp.meta.code;
+        if(rsApiCode==200){
+            if(resp.data.jobs ==""){
+                that.set("not_found_job",1);
+            }
+            else{
+                $vnwWidget.each( resp.data.jobs, function( key, value ) {
+                    var postedDate=value.posted_date;
+                    var arrPostDate= postedDate.split("/");
+                    value.posted_day=arrPostDate[0];
+                    //translate month
+                    value.posted_month=translationData["month_"+arrPostDate[1]][lang];
+                    dataJobsList.push(value);
+                });
+                var totalDisplayJob = dataJobsList.length;
+                var total = resp.data.total;
+                that.set("jobs",dataJobsList);
+                $vnwWidget('#load-more-jobs-from-vnw').off('click');
+                if(total>totalDisplayJob){
+                    $vnwWidget('#vietnamworks-jobs').one('click','#load-more-jobs-from-vnw',function(){
+                        var currentPage = totalDisplayJob/pageSize + 1;
+                        //currentPage = currentPage + 1;
+                        loadJobListFromVNW($vnwWidget,that,currentPage);
+                    });
+                    $vnwWidget('#load-more-jobs-from-vnw').show();
+                }else{
+                    $vnwWidget('#load-more-jobs-from-vnw').hide();
+                }
+
+                $vnwWidget(function () {
+                    'use strict';
+                    $vnwWidget('.show-more').each(function () {
+                        $vnwWidget(this).click(function () {
+
+                            var boxIsVisible = $vnwWidget(this).parents('li').find('.show-more-info-box').hasClass('in'),
+                                $thisBox = $vnwWidget(this).parents('li').find('.show-more-info-box'),
+                                $self = $vnwWidget(this);
+                            if (!boxIsVisible) {
+                                $thisBox.removeClass('hide');
+                                $self.html(translationData['show_less'][lang]+' <span class="icon-caret-down"></span>');
+                                $thisBox.addClass('in').removeClass('hide').slideDown(300);
+                                $self.find('.icon-caret-down').removeClass('icon-caret-down').addClass('icon-caret-up');
+                            } else {
+                                $self.html(translationData['show_more'][lang]+' <span class="icon-caret-up"></span>');
+                                $thisBox.removeClass('in').addClass('hide').slideUp(300);
+                                $self.find('.icon-caret-up').removeClass('icon-caret-up').addClass('icon-caret-down');
+
+                            }
+                        })
+                    });
+                    $vnwWidget('.scrollbar-outer').scrollbar();
+                    $vnwWidget('.scrollbar-outer').height($vnwWidget('#vietnamworks-jobs').data('vnw-widget-height'));
+                });
+            }
+        }else if(rsApiCode==400){
+            that.set("not_found_job",1);
         }
 
-        $vnwWidget(function () {
-            'use strict';
-            $vnwWidget('.show-more').each(function () {
-                $vnwWidget(this).click(function () {
-
-                    var boxIsVisible = $vnwWidget(this).parents('li').find('.show-more-info-box').hasClass('in'),
-                        $thisBox = $vnwWidget(this).parents('li').find('.show-more-info-box'),
-                        $self = $vnwWidget(this);
-                    if (!boxIsVisible) {
-                        $thisBox.removeClass('hide');
-                        $self.html(translationData['show_less'][lang]+' <span class="icon-caret-down"></span>');
-                        $thisBox.addClass('in').slideDown(300);
-                        $self.find('.icon-caret-down').removeClass('icon-caret-down').addClass('icon-caret-up');
-                    } else {
-                        $self.html(translationData['show_more'][lang]+' <span class="icon-caret-up"></span>');
-                        $thisBox.removeClass('in').slideUp(300);
-                        $self.find('.icon-caret-up').removeClass('icon-caret-up').addClass('icon-caret-down');
-
-                    }
-                })
-            });
-            $vnwWidget('.scrollbar-outer').scrollbar();
-        });
     }, function (resp) {
         console.log(resp);
     });
