@@ -101,6 +101,23 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
             this.ractive.set("domain",domain);
             loadJobListFromVNW($vnwWidget,this.ractive,1);
 
+            $vnwWidget(function () {
+                function postDateCheck() {
+                    if ($vnwWidget('.job-list').width() <= 300) {
+                        $vnwWidget('.job-list').addClass('no-date');
+                    } else {
+                        $vnwWidget('.job-list').removeClass('no-date');
+                    }
+                }
+
+                postDateCheck();
+
+                $vnwWidget(window).resize(function () {
+                    postDateCheck();
+                });
+            });
+
+
         },
         reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height) {
             //re-set data from agrument
@@ -123,8 +140,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
         pageSize = 5;
     }
     $vnwWidget.ajax({
-        url: "https://api-staging.vietnamworks.com/jobs/search-jsonp/",
-        //url: "http://api.sontt.vnw25.com/jobs/search-jsonp/",
+        url: "https://api.vietnamworks.com/jobs/search-jsonp/",
         dataType: "jsonp",
         data: {
             'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
@@ -166,7 +182,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
                 that.set("jobs",dataJobsList);
                 $vnwWidget('#load-more-jobs-from-vnw').off('click');
                 if(total>totalDisplayJob){
-                    $vnwWidget('#vietnamworks-jobs').one('click','#load-more-jobs-from-vnw',function(){
+                    $vnwWidget('#load-more-jobs-from-vnw').on('click',function(){
                         var currentPage = totalDisplayJob/pageSize + 1;
                         //currentPage = currentPage + 1;
                         loadJobListFromVNW($vnwWidget,that,currentPage);
