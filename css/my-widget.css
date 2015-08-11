@@ -84,3 +84,4 @@
 #vietnamworks-jobs .job-not-found{border-bottom:none!important;padding-left:0!important;padding-bottom:0!important;text-align:center!important;font-style:italic!important}
 #vietnamworks-jobs .no-date .post-date{display:none!important;visibility:hidden!important;opacity:0!important;filter:alpha(opacity=0)!important}
 #vietnamworks-jobs .no-date li{padding-left:0!important}
+#vietnamworks-jobs .no-date a.job-title{font-size:14px!important;margin-bottom:3px!important;display:inline-block!important}
