@@ -141,9 +141,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
         pageSize = 5;
     }
     $vnwWidget.ajax({
-        //url: "https://api.vietnamworks.com/jobs/search-jsonp/",
-        url: "http://dev.api.vietnamworks.com/jobs/search-jsonp/",
-
+        url: "https://api.vietnamworks.com/jobs/search-jsonp/",
         dataType: "jsonp",
         data: {
             'CONTENT-MD5' : "4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348",
