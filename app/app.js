@@ -119,7 +119,7 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
 
 
         },
-        reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height) {
+        reload: function ($email,$job_title,$job_category,$job_location,$page_size,$lang,$height,$width) {
             //re-set data from agrument
             $vnwWidget('#vietnamworks-jobs').data('vnw-email',$email);
             $vnwWidget('#vietnamworks-jobs').data('vnw-keyword',$job_title);
@@ -128,6 +128,7 @@ define(['jquery', 'ractive', 'rv!templates/template', 'rv!templates/jobList', 't
             $vnwWidget('#vietnamworks-jobs').data('vnw-numjobs',$page_size);
             $vnwWidget('#vietnamworks-jobs').data('vnw-lang',$lang);
             $vnwWidget('#vietnamworks-jobs').data('vnw-widget-height',$height);
+            $vnwWidget('#vietnamworks-jobs').data('vnw-widget-width',$width);
             app.init();
         }
     };
@@ -162,7 +163,8 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
             lang = 'vn';
         }
 
-        resp = $vnwWidget.parseJSON(resp);
+        //resp = $vnwWidget.parseJSON(resp);
+        resp=JSON.parse(resp);
         var rsApiCode=resp.meta.code;
         if(rsApiCode==200){
             if(resp.data.jobs ==""){
@@ -213,6 +215,7 @@ function loadJobListFromVNW($vnwWidget,that,currentPage){
                             }
                         })
                     });
+                    $vnwWidget('#vietnamworks-jobs').css("width",$vnwWidget('#vietnamworks-jobs').data('vnw-widget-width'));
                     $vnwWidget('.scrollbar-outer').scrollbar();
                     $vnwWidget('.scrollbar-outer').height($vnwWidget('#vietnamworks-jobs').data('vnw-widget-height'));
                 });

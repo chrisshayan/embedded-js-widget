@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://advice.vietnamworks.com/misc/favicon.ico" type="image/x-icon"/>
+    <title>Jobs, find jobs, job search, executive and manager jobs - VietnamWorks</title>
+    <meta name="Robots" content="index, follow">
+    <meta name="Description" content="Top job search, find jobs and career website in Vietnam. Find jobs and post resume to apply new jobs. Search jobs from 4,000+ new jobs updated daily.">
+    <meta name="Keywords" content="vietnamworks, vietnamworks.com, jobs, search jobs, find jobs, vietnam job, recruitment, employment, career, executive jobs, job opportunities, job seeker, finding job, job site, online jobs, top jobs">
+    <meta name="format-detection" content="telephone=no">
+    <meta property="og:image" content="http://images.vietnamworks.com/img/thumbnail.png"/>
+    <meta property="og:title" content="Jobs, find jobs, job search, executive and manager jobs - VietnamWorks"/>
+    <meta property="og:url" content="http://widget.vietnamworks.com/en"/>
+    <meta property="og:title_name" content="widget.vietnamworks.com"/>
+    <meta property="og:description" content="Top job search, find jobs and career website in Vietnam. Find jobs and post resume to apply new jobs. Search jobs from 4,000+ new jobs updated daily."/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css?version=4">
+    <link rel="stylesheet" type="text/css" href="css/theme.css?version=4">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.3.7.0.js"></script>
+    <script type="text/javascript" src="js/respond.1.3.0.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/select2.js"></script>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav class="navbar navbar-default navbar-iframe" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://www.vietnamworks.com/">
+                    <img src="http://images.vietnamworks.com/img/jobseekers/logo.png" alt="Vietnamworks - Job Search, career and employment in Vietnam"
+                         title="Vietnamworks - Job Search, career and employment in Vietnam"
+                         class="vnw-logo img-responsive">
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="main-wrapper">
+    <div class="container">
+        <style>
+            #widget h3 {
+                margin-top: 20px;
+            }
+            #widget .box h3 {
+                margin-top: 5px;
+                margin-bottom: 20px;
+            }
+            #widget .customize-vnw-widget {
+                margin-top: 20px;
+            }
+            #widget-preview h3 {
+                margin-top: 20px;
+            }
+            #embedded-container{cursor:default !important;}
+        </style>
+        <h1>VietnamWorks Widget</h1>
+        <div class="row">
+            <div class="col-sm-6 col-sm-push-6">
+                <div id="widget-preview">
+                    <h3>Preview</h3>
+                    <div id="vietnamworks-jobs" data-vnw-keyword="" data-vnw-numjobs="10" data-vnw-userid="" data-vnw-lang="1"
+                         data-vnw-industry="" data-vnw-location="" data-vnw-email="" data-vnw-widget-height="500" data-vnw-widget-width="100%"></div>
+                </div>
+                <script>
+                    (function (window, document) {
+                        var loader = function () {
+                            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                            script.src = "embed.min.js";
+                            tag.parentNode.insertBefore(script, tag);
+                        };
+                        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                    })(window, document);
+                </script>
+
+            </div>
+            <div class="col-sm-6 col-sm-pull-6">
+                <div id="widget">
+                    <h3>Place the code for your plugin wherever you want the plugin to appear on your page.</h3>
+				<textarea id="embedded-container" class="form-control" readonly="1" rows="10" spellcheck="false" onclick="this.focus(); this.select()" tabindex="0">&lt;div data-vnw-numjobs=&quot;5&quot; data-vnw-industry=&quot;&quot; data-vnw-location=&quot;&quot; data-vnw-keyword=&quot;&quot; data-vnw-email=&quot;&quot; data-vnw-lang=&quot;2&quot; id=&quot;vietnamworks-jobs&quot;&gt;&lt;/div&gt;&lt;script&gt;(function (window, document) { var loader = function () { var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;
+				</textarea>
+
+                    <form class="form-horizontal">
+                        <div class="box box-md customize-vnw-widget">
+                            <h3>Customize your plugin</h3>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Language</label>
+                                <div class="col-sm-9">
+                                    <div class="border-text-box">
+                                        <select id="lang">
+                                            <option value="1">Tiếng Việt</option>
+                                            <option value="2">English</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="email"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Keyword</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="keyword"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Location</label>
+                                <div class="col-sm-9">
+                                    <div class="border-text-box">
+                                        <select id="location">
+                                            <option value="-1">Any location</option>
+                                            <option value="29">Ho Chi Minh</option>
+                                            <option value="24">Ha Noi</option>
+                                            <option value="71">Mekong Delta</option>
+                                            <option value="2">An Giang</option>
+                                            <option value="3">Ba Ria - Vung Tau</option>
+                                            <option value="4">Bac Can</option>
+                                            <option value="5">Bac Giang</option>
+                                            <option value="6">Bac Lieu</option>
+                                            <option value="7">Bac Ninh</option>
+                                            <option value="8">Ben Tre</option>
+                                            <option value="9">Bien Hoa</option>
+                                            <option value="10">Binh Dinh</option>
+                                            <option value="11">Binh Duong</option>
+                                            <option value="12">Binh Phuoc</option>
+                                            <option value="13">Binh Thuan</option>
+                                            <option value="14">Ca Mau</option>
+                                            <option value="15">Can Tho</option>
+                                            <option value="16">Cao Bang</option>
+                                            <option value="17">Da Nang</option>
+                                            <option value="18">Dac Lac</option>
+                                            <option value="69">Dien Bien</option>
+                                            <option value="19">Dong Nai</option>
+                                            <option value="20">Dong Thap</option>
+                                            <option value="21">Gia Lai</option>
+                                            <option value="22">Ha Giang</option>
+                                            <option value="23">Ha Nam</option>
+                                            <option value="25">Ha Tay</option>
+                                            <option value="26">Ha Tinh</option>
+                                            <option value="27">Hai Duong</option>
+                                            <option value="28">Hai Phong</option>
+                                            <option value="30">Hoa Binh</option>
+                                            <option value="31">Hue</option>
+                                            <option value="32">Hung Yen</option>
+                                            <option value="33">Khanh Hoa</option>
+                                            <option value="34">Kon Tum</option>
+                                            <option value="35">Lai Chau</option>
+                                            <option value="36">Lam Dong</option>
+                                            <option value="37">Lang Son</option>
+                                            <option value="38">Lao Cai</option>
+                                            <option value="40">Nam Dinh</option>
+                                            <option value="41">Nghe An</option>
+                                            <option value="42">Ninh Binh</option>
+                                            <option value="43">Ninh Thuan</option>
+                                            <option value="44">Phu Tho</option>
+                                            <option value="45">Phu Yen</option>
+                                            <option value="46">Quang Binh</option>
+                                            <option value="47">Quang Nam</option>
+                                            <option value="48">Quang Ngai</option>
+                                            <option value="49">Quang Ninh</option>
+                                            <option value="50">Quang Tri</option>
+                                            <option value="51">Soc Trang</option>
+                                            <option value="52">Son La</option>
+                                            <option value="53">Tay Ninh</option>
+                                            <option value="54">Thai Binh</option>
+                                            <option value="55">Thai Nguyen</option>
+                                            <option value="56">Thanh Hoa</option>
+                                            <option value="57">Thua Thien-Hue</option>
+                                            <option value="58">Tien Giang</option>
+                                            <option value="59">Tra Vinh</option>
+                                            <option value="60">Tuyen Quang</option>
+                                            <option value="61">Kien Giang</option>
+                                            <option value="62">Vinh Long</option>
+                                            <option value="63">Vinh Phuc</option>
+                                            <option value="65">Yen Bai</option>
+                                            <option value="66">Other</option>
+                                            <option value="70">International</option>
+                                            <option value="72">Hau Giang</option>
+                                            <option value="39">Long An</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Industry</label>
+
+                                <div class="col-sm-9">
+                                    <div class="border-text-box">
+                                        <select id="industry">
+                                            <option value="-1">All categories</option>
+                                            <option value="1">Accounting</option>
+                                            <option value="2">Administrative/Clerical</option>
+                                            <option value="3">Advertising/Promotion/PR</option>
+                                            <option value="4">Agriculture/Forestry</option>
+                                            <option value="37">Airlines/Tourism/Hotel</option>
+                                            <option value="5">Architecture/Interior Design</option>
+                                            <option value="10">Arts/Design</option>
+                                            <option value="58">Auditing</option>
+                                            <option value="67">Automotive</option>
+                                            <option value="42">Banking</option>
+                                            <option value="43">Chemical/Biochemical</option>
+                                            <option value="7">Civil/Construction</option>
+                                            <option value="8">Consulting</option>
+                                            <option value="11">Customer Service</option>
+                                            <option value="12">Education/Training</option>
+                                            <option value="64">Electrical/Electronics</option>
+                                            <option value="15">Entry level</option>
+                                            <option value="16">Environment/Waste Services</option>
+                                            <option value="17">Executive management</option>
+                                            <option value="18">Expatriate Jobs in Vietnam</option>
+                                            <option value="19">Export-Import</option>
+                                            <option value="63">Fashion/Lifestyle</option>
+                                            <option value="59">Finance/Investment</option>
+                                            <option value="54">Food &amp; Beverage</option>
+                                            <option value="36">Freight/Logistics</option>
+                                            <option value="22">Health/Medical Care</option>
+                                            <option value="66">High Technology</option>
+                                            <option value="23">Human Resources</option>
+                                            <option value="68">Industrial Products</option>
+                                            <option value="24">Insurance</option>
+                                            <option value="57">Internet/Online Media</option>
+                                            <option value="47">Interpreter/Translator</option>
+                                            <option value="55">IT - Hardware/Networking</option>
+                                            <option value="35">IT - Software</option>
+                                            <option value="25">Legal/Contracts</option>
+                                            <option value="62">Luxury Goods</option>
+                                            <option value="27">Marketing</option>
+                                            <option value="65">Mechanical</option>
+                                            <option value="21">NGO/Non-Profit</option>
+                                            <option value="28">Oil/Gas</option>
+                                            <option value="71">Overseas Jobs</option>
+                                            <option value="6">Pharmaceutical/Biotech</option>
+                                            <option value="69">Planning/Projects</option>
+                                            <option value="26">Production/Process</option>
+                                            <option value="49">Purchasing/Supply Chain</option>
+                                            <option value="70">QA/QC</option>
+                                            <option value="30">Real Estate</option>
+                                            <option value="32">Retail/Wholesale</option>
+                                            <option value="33">Sales</option>
+                                            <option value="34">Sales Technical</option>
+                                            <option value="56">Securities &amp; Trading</option>
+                                            <option value="41">Telecommunications</option>
+                                            <option value="51">Temporary/Contract</option>
+                                            <option value="52">Textiles/Garments/Footwear</option>
+                                            <option value="48">TV/Media/Newspaper</option>
+                                            <option value="53">Warehouse</option>
+                                            <option value="39">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Job Number</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="numjobs" class="form-control" placeholder="10"/>
+                                    <span class="help-block">Maximum is 30</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Height</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="widget-height" class="form-control" placeholder="500"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Width</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="widget-width" class="form-control" placeholder="100%"/>
+                                    <span class="help-block">100% or 500px</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var js_script_escape = "&lt;script&gt;(function (window, document) {  var loader = function () {    var script = document.createElement(&quot;script&quot;), tag = document.getElementsByTagName(&quot;script&quot;)[0];script.src = &quot;http://widget.vietnamworks.com/embed.min.js&quot;;tag.parentNode.insertBefore(script, tag); }; window.addEventListener ? window.addEventListener(&quot;load&quot;, loader, false) : window.attachEvent(&quot;onload&quot;, loader);})(window, document);&lt;/script&gt;";
+            function change_config() {
+                var $lang_val = $("#vietnamworks-jobs").data("vnw-lang");
+                var $email_val = $("#vietnamworks-jobs").data("vnw-email");
+                var $keyword_val = $("#vietnamworks-jobs").data("vnw-keyword");
+                var $location_val = $("#vietnamworks-jobs").data("vnw-location");
+                if ($location_val == "-1") {
+                    $location_val = "";
+                }
+                var $industry_val = $("#vietnamworks-jobs").data("vnw-industry");
+                if ($industry_val == "-1") {
+                    $industry_val = "";
+                }
+                var $numjobs_val = $("#vietnamworks-jobs").data("vnw-numjobs");
+                if ($numjobs_val == "") {
+                    $numjobs_val=10;
+                }
+                var $widget_height_val= $("#vietnamworks-jobs").data("vnw-widget-height");
+                if($widget_height_val==""){
+                    $widget_height_val=500;
+                }
+                var $widget_width_val= $("#vietnamworks-jobs").data("vnw-widget-width");
+                if($widget_width_val==""){
+                    $widget_width_val="100%";
+                }
+
+                var vnwjobscontainer = document.createElement("div");
+                vnwjobscontainer.setAttribute("id", "vietnamworks-jobs");
+                vnwjobscontainer.setAttribute("data-vnw-lang", $lang_val);
+                if($email_val!=''){
+                    vnwjobscontainer.setAttribute("data-vnw-email", $email_val);
+                }
+                if($keyword_val!='') {
+                    vnwjobscontainer.setAttribute("data-vnw-keyword", $keyword_val);
+                }
+                if($location_val!=''){
+                    vnwjobscontainer.setAttribute("data-vnw-location", $location_val);
+                }
+                if($industry_val!=''){
+                    vnwjobscontainer.setAttribute("data-vnw-industry", $industry_val);
+                }
+                vnwjobscontainer.setAttribute("data-vnw-numjobs", $numjobs_val);
+                vnwjobscontainer.setAttribute("data-vnw-widget-height", $widget_height_val);
+                vnwjobscontainer.setAttribute("data-vnw-widget-width", $widget_width_val);
+
+                var strvnwjobscontainer = vnwjobscontainer.outerHTML;
+                $("#embedded-container").html(strvnwjobscontainer + js_script_escape);
+                require([ "app/app"], function (app) {
+                    "use strict";
+                    app.reload($email_val,$keyword_val,$industry_val,$location_val,$numjobs_val,$lang_val,$widget_height_val,$widget_width_val);
+                });
+            }
+            $("#lang").change(function () {
+                var $lang_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-lang", $lang_val);
+                change_config();
+            });
+            $("#email").change(function () {
+                var $email_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-email", $email_val);
+                change_config();
+            });
+            $("#keyword").change(function () {
+                var $keyword_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-keyword", $keyword_val);
+                change_config();
+            });
+            $("#industry").change(function () {
+                var $industry_val = $(this).val();
+                if ($industry_val == "-1") {
+                    $industry_val = "";
+                }
+                $("#vietnamworks-jobs").data("vnw-industry", $industry_val);
+                change_config();
+            });
+            $("#location").change(function () {
+                var $location_val = $(this).val();
+                if ($location_val == "-1") {
+                    $location_val = "";
+                }
+                $("#vietnamworks-jobs").data("vnw-location", $location_val);
+                change_config();
+            });
+            $("#numjobs").change(function () {
+                var $numjobs_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-numjobs",$numjobs_val);
+                change_config();
+            });
+            $("#widget-height").change(function () {
+                var $widget_height_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-widget-height",$widget_height_val);
+                change_config();
+            });
+            $("#widget-width").change(function () {
+                var $widget_width_val = $(this).val();
+                $("#vietnamworks-jobs").data("vnw-widget-width",$widget_width_val);
+                change_config();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#widget select').select2({
+                width: '100%'
+            });
+        })
+    </script>
+</div>
+
+</body>
+</html>
